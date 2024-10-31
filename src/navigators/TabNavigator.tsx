@@ -8,7 +8,6 @@ import Customicon from "../components/Customicon";
 import { View, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
@@ -18,16 +17,19 @@ const TabNavigator = () => {
                 tabBarHideOnKeyboard: true,
                 headerShown: false,
                 tabBarStyle: {
-                    backgroundColor: COLORS.Black,
-                    borderTopWidth: 0,
-                    height: SPACING.space_10 * 10
+                backgroundColor: COLORS.Black,
+                borderTopWidth: 0,
+                height: SPACING.space_10 * 10
                 },
             }}>
             <Tab.Screen name="Home" component={HomeScreen} options={{
                 tabBarShowLabel: false,
                 tabBarIcon: ({ focused, color, size }) => {
-                    return <View style={styles.activeTabBackground}> </View>
-
+                    return (
+                        <View style={styles.activeTabBackground}>
+                            <Customicon name="home" color={color} size={size} />
+                        </View>
+                    );
                 },
             }}></Tab.Screen>
             <Tab.Screen name="Search" component={SearchScreen}></Tab.Screen>
@@ -43,7 +45,6 @@ const styles = StyleSheet.create({
         padding: SPACING.space_18,
         borderRadius: SPACING.space_18 * 10,
     },
-
 });
 
 export default TabNavigator;
