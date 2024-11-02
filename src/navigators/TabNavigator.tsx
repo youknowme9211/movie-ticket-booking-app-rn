@@ -12,14 +12,16 @@ const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
     return (
+
         <Tab.Navigator
+
             screenOptions={{
                 tabBarHideOnKeyboard: true,
                 headerShown: false,
                 tabBarStyle: {
-                backgroundColor: COLORS.Black,
-                borderTopWidth: 0,
-                height: SPACING.space_10 * 10
+                    backgroundColor: COLORS.Black,
+                    borderTopWidth: 0,
+                    height: SPACING.space_10 * 10
                 },
             }}>
             <Tab.Screen name="Home" component={HomeScreen} options={{
@@ -27,16 +29,21 @@ const TabNavigator = () => {
                 tabBarIcon: ({ focused, color, size }) => {
                     return (
                         <View style={styles.activeTabBackground}>
-                            <Customicon name="home" color={color} size={size} />
+                            <Customicon name='video'
+                                color={COLORS.White}
+                                size={FONTSIZE.size_30} />
                         </View>
                     );
                 },
-            }}></Tab.Screen>
-            <Tab.Screen name="Search" component={SearchScreen}></Tab.Screen>
-            <Tab.Screen name="Ticket" component={TicketScreen}></Tab.Screen>
-            <Tab.Screen name="User" component={UserAccountScreen}></Tab.Screen>
+            }} />
+            <Tab.Screen name="Search" component={SearchScreen} />
+            <Tab.Screen name="Ticket" component={TicketScreen} />
+            <Tab.Screen name="User" component={UserAccountScreen} />
+
         </Tab.Navigator >
+
     )
+
 };
 
 const styles = StyleSheet.create({
@@ -48,4 +55,4 @@ const styles = StyleSheet.create({
 });
 
 export default TabNavigator;
- 
+
